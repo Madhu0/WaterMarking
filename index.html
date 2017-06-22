@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Marking</title>
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+<body>
+<input id="imageFile" type="file" accept="image/x-png,image/gif,image/jpeg">
+<button onclick="addWaterMark()" >Add Watermark</button>
+<div></div>
+<script type="text/javascript">
+  function addWaterMark(e) {
+    var file = document.getElementById('imageFile').files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const image = event.target.result;
+      waterMarkTheImage(image);
+    }
+    reader.readAsDataURL(file);
+  }
+</script>
+</body>
+</html>
