@@ -8,13 +8,19 @@ function waterMarkTheImage(image) {
     canvas.width = image1.width;
     context.drawImage(image1, 0, 0, image1.width, image1.width);
     context.font = "30px Comic Sans MS";
-    context.fillStyle = 'red'
-    context.fillText('Madhu', canvas.width - 100, canvas.height - 100);
+    context.fillStyle = 'rgba(192, 192, 192, 0.7)';
+    context.fillText('killer-filler', canvas.width - 100, canvas.height - 40);
     const newSource = canvas.toDataURL();
     const newImage = new Image();
     newImage.src = newSource;
     newImage.onload = function(){
       document.getElementsByTagName('div')[0].appendChild(newImage);
+      const anchor = document.createElement('a');
+      const anchorText = document.createTextNode('Click Here To Download');
+      anchor.appendChild(anchorText);
+      anchor.href = newSource;
+      anchor.download = "killer-filler";
+      document.getElementsByTagName('div')[0].appendChild(anchor);
     }
   }
 }
